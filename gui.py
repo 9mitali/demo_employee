@@ -431,7 +431,7 @@ def add_employee():
         "Salary": entry_salary.get()
     }
 
-    response = requests.post("http://127.0.0.1:3306/employee", json=employee_data)
+    response = requests.post("http://127.0.0.1:5501/employee", json=employee_data)
 
     if response.status_code == 201:
         messagebox.showinfo("Success", "User added successfully")
@@ -440,7 +440,7 @@ def add_employee():
         messagebox.showerror("Error", f"Failed to add user: {response.json().get('message')}")
 
 def get_all_employees():
-    response = requests.get("http://127.0.0.1:3306/employee")
+    response = requests.get("http://127.0.0.1:5501/employee")
     if response.status_code == 200:
         employees = response.json()
         display_employees(employees)
@@ -499,7 +499,7 @@ def update_employee():
         "Salary": entry_salary.get()
     }
 
-    response = requests.put(f"http://127.0.0.1:3306/employee/{emp_id}", json=employee_data)
+    response = requests.put(f"http://127.0.0.1:5501/employee/{emp_id}", json=employee_data)
 
     if response.status_code == 200:
         messagebox.showinfo("Success", "User updated successfully")
@@ -517,7 +517,7 @@ def delete_employee():
     if not confirm:
         return
 
-    response = requests.delete(f"http://127.0.0.1:3306/employee/{emp_id}")
+    response = requests.delete(f"http://127.0.0.1:5501/employee/{emp_id}")
 
     if response.status_code == 200:
         messagebox.showinfo("Success", "User deleted successfully")
