@@ -15,5 +15,5 @@ api = Api(app)
 api.add_resource(Employee, '/employee', '/employee/<string:emp_id>')
 
 if __name__ == '__main__':
-    app.run(host=config['FLASK']['host'], port=int(config['FLASK']['port']))
+    app.run(host=config['FLASK']['host'], port=int(config['FLASK']['port']),debug=TRUE)
     
